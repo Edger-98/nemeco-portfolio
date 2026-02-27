@@ -33,10 +33,36 @@
       line-height: 1.6;
     }
 
+    /* ─── FOUNDING BANNER ─── */
+    .founding-banner {
+      background: linear-gradient(90deg, #c9a84c 0%, #e8c97a 50%, #c9a84c 100%);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite linear;
+      color: #080c14;
+      text-align: center;
+      padding: 0.6rem 1rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 101;
+    }
+
+    .founding-banner span {
+      opacity: 0.7;
+      margin: 0 1rem;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
     /* ─── NAV ─── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 34px; left: 0; right: 0;
       z-index: 100;
       padding: 1.25rem 5%;
       display: flex;
@@ -98,6 +124,7 @@
       display: flex;
       align-items: center;
       padding: 0 5%;
+      padding-top: 100px;
       position: relative;
       overflow: hidden;
     }
@@ -163,9 +190,48 @@
       font-size: 1.1rem;
       color: var(--text-muted);
       max-width: 520px;
-      margin-bottom: 2.75rem;
+      margin-bottom: 2rem;
       line-height: 1.7;
       font-weight: 300;
+    }
+
+    /* ─── FOUNDING OFFER PILL ─── */
+    .founding-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 100px;
+      padding: 0.5rem 1rem;
+      margin-bottom: 1.75rem;
+      font-size: 0.8rem;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+
+    .founding-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .spots-left {
+      background: #e05252;
+      color: white;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 100px;
+      text-transform: uppercase;
     }
 
     .hero-buttons {
@@ -227,9 +293,7 @@
       animation: fadeLeft 1s 0.3s ease both;
     }
 
-    .stat {
-      text-align: right;
-    }
+    .stat { text-align: right; }
 
     .stat-number {
       font-family: 'Cormorant Garamond', serif;
@@ -255,9 +319,7 @@
     }
 
     /* ─── SECTIONS ─── */
-    section {
-      padding: 7rem 5%;
-    }
+    section { padding: 7rem 5%; }
 
     .section-label {
       font-size: 0.7rem;
@@ -322,9 +384,7 @@
       transition: border-color 0.25s;
     }
 
-    .problem-item:hover {
-      border-color: rgba(201,168,76,0.3);
-    }
+    .problem-item:hover { border-color: rgba(201,168,76,0.3); }
 
     .problem-x {
       color: #e05252;
@@ -400,10 +460,7 @@
 
     .feature-card:hover::before { opacity: 1; }
 
-    .feature-icon {
-      font-size: 1.75rem;
-      margin-bottom: 1.25rem;
-    }
+    .feature-icon { font-size: 1.75rem; margin-bottom: 1.25rem; }
 
     .feature-title {
       font-family: 'Cormorant Garamond', serif;
@@ -495,24 +552,12 @@
       letter-spacing: 0.05em;
     }
 
-    .demo-launch {
-      padding: 3rem;
-      text-align: center;
-    }
-
-    .demo-launch p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
-    }
-
     /* ─── PRICING ─── */
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      max-width: 800px;
+      max-width: 1000px;
       margin: 4rem auto 0;
     }
 
@@ -522,12 +567,12 @@
       border-radius: 4px;
       padding: 2.5rem 2rem;
       transition: all 0.3s;
+      position: relative;
     }
 
     .price-card.featured {
       border-color: var(--gold);
       background: var(--dark-3);
-      position: relative;
     }
 
     .price-card.featured::before {
@@ -542,6 +587,61 @@
       text-transform: uppercase;
       padding: 0.25rem 0.75rem;
       border-radius: 0 0 4px 4px;
+    }
+
+    /* Founding card special treatment */
+    .price-card.founding {
+      border-color: #52c97b;
+      background: rgba(82,201,123,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.founding::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(82,201,123,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .founding-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(82,201,123,0.15);
+      border: 1px solid rgba(82,201,123,0.4);
+      color: #52c97b;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+
+    .founding-spots {
+      font-size: 0.78rem;
+      color: #e05252;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .founding-spots::before {
+      content: '●';
+      font-size: 0.6rem;
+      animation: pulse-dot 1.5s infinite;
+    }
+
+    .price-original {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+      margin-bottom: 0.2rem;
     }
 
     .price-name {
@@ -561,10 +661,9 @@
       margin-bottom: 0.25rem;
     }
 
-    .price-amount span {
-      font-size: 1.5rem;
-      color: var(--gold);
-    }
+    .price-amount span { font-size: 1.5rem; color: var(--gold); }
+    .price-amount.green span { color: #52c97b; }
+    .price-amount.green { color: #52c97b; }
 
     .price-sub {
       font-size: 0.8rem;
@@ -595,9 +694,33 @@
       flex-shrink: 0;
     }
 
+    .price-features.green li::before { color: #52c97b; }
+
+    .btn-green {
+      background: #52c97b;
+      color: #080c14;
+      padding: 0.9rem 2.2rem;
+      border-radius: 2px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.25s;
+      font-family: 'DM Sans', sans-serif;
+      display: block;
+      text-align: center;
+    }
+
+    .btn-green:hover {
+      background: #6ee091;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(82,201,123,0.3);
+    }
+
     /* ─── ADDONS ─── */
     .addons {
-      max-width: 800px;
+      max-width: 1000px;
       margin: 2rem auto 0;
       background: var(--dark-2);
       border: 1px solid var(--border);
@@ -619,16 +742,8 @@
       gap: 1rem;
     }
 
-    .addon {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .addon strong {
-      display: block;
-      color: var(--text);
-      margin-bottom: 0.15rem;
-    }
+    .addon { font-size: 0.85rem; color: var(--text-muted); }
+    .addon strong { display: block; color: var(--text); margin-bottom: 0.15rem; }
 
     /* ─── ABOUT ─── */
     .about {
@@ -705,11 +820,7 @@
       background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
     }
 
-    .cta-section h2 {
-      max-width: 700px;
-      margin: 0 auto 1.25rem;
-    }
-
+    .cta-section h2 { max-width: 700px; margin: 0 auto 1.25rem; }
     .cta-section p {
       font-size: 1rem;
       color: var(--text-muted);
@@ -726,15 +837,9 @@
       justify-content: space-between;
     }
 
-    .footer-copy {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+    .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
 
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
+    .footer-links { display: flex; gap: 2rem; }
 
     .footer-links a {
       font-size: 0.8rem;
@@ -762,10 +867,7 @@
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: none;
-    }
+    .reveal.visible { opacity: 1; transform: none; }
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
@@ -781,8 +883,17 @@
 </head>
 <body>
 
+  <!-- FOUNDING BANNER -->
+  <div class="founding-banner" style="position:fixed;top:0;left:0;right:0;z-index:102;">
+    🔥 Founding Client Rate — $500 Setup (Normally $1,500)
+    <span>·</span>
+    Only 2 Spots Remaining
+    <span>·</span>
+    <a href="https://calendly.com/chinemenwatu98/30min" target="_blank" style="color:#080c14;font-weight:700;text-decoration:underline;">Claim Yours →</a>
+  </div>
+
   <!-- NAV -->
-  <nav>
+  <nav style="top:34px;">
     <a class="nav-logo" href="#">Neme<span style="color:var(--text-muted)"> Co</span></a>
     <ul class="nav-links">
       <li><a href="#problem">The Problem</a></li>
@@ -799,6 +910,14 @@
     <div class="hero-grid"></div>
     <div class="hero-content">
       <p class="hero-eyebrow">Neme Co · AI Solutions for Insurance Professionals</p>
+
+      <!-- Founding offer pill -->
+      <div class="founding-pill">
+        <span class="founding-pill-dot"></span>
+        Founding Client Rate — $500 Setup · First Month Free
+        <span class="spots-left">2 spots left</span>
+      </div>
+
       <h1>Your Agency,<br/>Working <em>24/7</em></h1>
       <p class="hero-sub">
         Custom AI chatbots that handle health insurance questions around the clock,
@@ -809,7 +928,7 @@
           ▶ &nbsp;See Live Demo
         </a>
         <a class="btn-outline" href="https://calendly.com/chinemenwatu98/30min" target="_blank">
-          Book Free 15-min Call
+          Claim Founding Rate
         </a>
       </div>
     </div>
@@ -922,7 +1041,7 @@
     <div class="reveal">
       <p class="section-label">Live Demo</p>
       <h2>See it <em>in action.</em></h2>
-      <p class="section-intro">This is a real, working chatbot built for an insurance agency. Try asking it anything.</p>
+      <p class="section-intro">This is a real, working chatbot built for a health insurance agency. Try asking it anything.</p>
     </div>
     <div class="demo-inner reveal">
       <div>
@@ -942,7 +1061,7 @@
           <span class="dot dot-r"></span>
           <span class="dot dot-y"></span>
           <span class="dot dot-g"></span>
-          <span class="demo-frame-title">John Rotor's Insurance — AI Assistant · Live</span>
+          <span class="demo-frame-title">Sample Agency — AI Assistant · Live</span>
           <span style="margin-left:auto;font-size:0.65rem;color:#52c97b;letter-spacing:0.08em;">● LIVE</span>
         </div>
         <iframe
@@ -964,6 +1083,28 @@
       <p class="section-intro" style="margin:0 auto;">No subscriptions to guess at. One setup fee, one monthly cost. That's it.</p>
     </div>
     <div class="pricing-grid reveal">
+
+      <!-- FOUNDING CLIENT CARD -->
+      <div class="price-card founding">
+        <div class="founding-badge">⚡ Founding Rate</div>
+        <div class="founding-spots">Only 2 spots remaining</div>
+        <p class="price-name">Standard Package</p>
+        <p class="price-original">$1,500 setup</p>
+        <div class="price-amount green"><span>$</span>500</div>
+        <p class="price-sub">one-time setup · then $100/month · first month free</p>
+        <ul class="price-features green">
+          <li>Custom AI assistant for your agency</li>
+          <li>Trained on your specific products</li>
+          <li>Lead capture and qualification</li>
+          <li>Deployed on your website</li>
+          <li>5–7 day delivery</li>
+          <li>2 rounds of revisions</li>
+          <li><strong style="color:#52c97b;">First month free — zero risk</strong></li>
+        </ul>
+        <a class="btn-green" href="https://calendly.com/chinemenwatu98/30min" target="_blank">Claim Founding Rate →</a>
+      </div>
+
+      <!-- STANDARD CARD -->
       <div class="price-card">
         <p class="price-name">Standard Package</p>
         <div class="price-amount"><span>$</span>1,500</div>
@@ -978,6 +1119,8 @@
         </ul>
         <a class="btn-outline" href="https://calendly.com/chinemenwatu98/30min" target="_blank" style="display:block;text-align:center;">Book a Call</a>
       </div>
+
+      <!-- PREMIUM CARD -->
       <div class="price-card featured">
         <p class="price-name">Premium Package</p>
         <div class="price-amount"><span>$</span>2,000</div>
@@ -992,6 +1135,7 @@
         </ul>
         <a class="btn-primary" href="https://calendly.com/chinemenwatu98/30min" target="_blank" style="display:block;text-align:center;">Book a Call →</a>
       </div>
+
     </div>
     <div class="addons reveal">
       <p class="addons-title">Add-Ons Available</p>
@@ -1031,7 +1175,7 @@
     <div class="reveal" style="position:relative;">
       <p class="section-label" style="text-align:center;">Get Started</p>
       <h2>Ready to automate<br/>your agency?</h2>
-      <p>Book a free 15-minute call. We'll walk through your specific needs and I'll tell you exactly what's possible.</p>
+      <p>Book a free 15-minute call. We'll walk through your specific needs and I'll tell you exactly what's possible — and if you qualify, lock in the founding rate before it's gone.</p>
       <a class="btn-primary" href="https://calendly.com/chinemenwatu98/30min" target="_blank" style="font-size:0.9rem;padding:1.1rem 2.8rem;margin:0 auto;display:inline-flex;">
         Schedule Free Call →
       </a>
@@ -1048,7 +1192,7 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -1157,9 +1301,7 @@
       display: none;
       flex-direction: column;
     }
-    #chat-popup.open {
-      display: flex;
-    }
+    #chat-popup.open { display: flex; }
     #chat-popup-header {
       background: #111827;
       padding: 0.85rem 1rem;
@@ -1169,10 +1311,7 @@
       justify-content: space-between;
       flex-shrink: 0;
     }
-    #chat-popup-body {
-      flex: 1;
-      overflow: hidden;
-    }
+    #chat-popup-body { flex: 1; overflow: hidden; }
     @media (max-width: 480px) {
       #chat-popup {
         width: calc(100vw - 24px);
